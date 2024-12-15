@@ -156,7 +156,7 @@
             <input type="color" id="colorInput" value="#ff6347">
         </div>
         <button id="startButton">🚀 开始游戏</button>
-        <button id="stopButton" style="display: none;">🛑 Stop Game</button>
+        <button id="stopButton" style="display: none;">🛑 停止游戏</button>
     </div>
     <div id="stats">
         <div>⏳ 剩余时间: <span id="timer">30</span> seconds</div>
@@ -260,9 +260,9 @@
             if (score > highScore) {
                 highScore = score;
                 highScoreDisplay.textContent = highScore;
-                alert("🎉 New High Score! Your score is: " + score);
+                alert("🎉 新的最高分! 分数是: " + score);
             } else {
-                alert("Game over! Your score is: " + score);
+                alert("游戏结束！你的分数: " + score);
             }
         }
     </script>
