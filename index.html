@@ -66,7 +66,7 @@
         }
 
         .players li {
-            background-color: #f9f9f9;
+            background-color: #ffffff;
             margin: 5px 0;
             padding: 5px;
             border-radius: 5px;
@@ -81,6 +81,42 @@
         .admin {
             color: orange; /* 管理员名称橙色 */
             font-weight: bold;
+        }
+
+        /* 新增下载软件部分样式 */
+        .downloads {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .downloads ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .downloads li {
+            background-color: #ffffff;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            color: #2e3b4e;
+        }
+
+        .downloads li a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .downloads li a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -113,6 +149,26 @@
         </ul>
     </div>
 
+    <!-- 软件下载部分 -->
+    <div class="downloads">
+        <h3>软件下载</h3>
+        <ul>
+            <!-- 外部文件下载链接 -->
+            <li>
+                <a href="https://www.123684.com/s/SCoTjv-rPxD3" target="_blank">点击下载 pcl2 启动器</a>
+                <p>一个简洁好用的Minecraft Java版启动器，支持启动不同版本的游戏。</p>
+            </li>
+            <li>
+                <a href="https://www.123684.com/s/SCoTjv-8PxD3" target="_blank">点击下载 JAVA</a>
+                <p>此链接内含多个版本的 JAVA 安装器，请根据你的游玩版本和系统选择安装。</p>
+            </li>
+            <li>
+                <a href="https://www.123684.com/s/SCoTjv-RPxD3" target="_blank">点击下载 .NET_Framework_4.6.2</a>
+                <p> .NET Framework 4.6.2 运行库，用于运行 Minecraft 服务器。（如果打不开启动器，请安装此运行库）</p>
+            </li>
+        </ul>
+    </div>
+    
     <script>
         // 服务器信息配置
         const serverAddress = 'play.simpfun.cn'; // 替换为你的服务器地址
