@@ -74,12 +74,14 @@
         }
 
         .owner {
-            color: red; /* 服主名称红色 */
+            color: red;
+            /* 服主名称红色 */
             font-weight: bold;
         }
 
         .admin {
-            color: orange; /* 管理员名称橙色 */
+            color: orange;
+            /* 管理员名称橙色 */
             font-weight: bold;
         }
 
@@ -140,6 +142,8 @@
             <p><strong>服主名称:</strong> <span class="owner">yuanmingze</span></p>
             <p><strong>管理人员:</strong> <span class="admin">yuanmingze</span>，<span class="admin">not1</span></p>
         </div>
+
+
     </div>
 
     <div class="players">
@@ -168,7 +172,12 @@
             </li>
         </ul>
     </div>
-    
+
+    <!-- 密码验证按钮 -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="checkPassword()"></button>
+    </div>
+
     <script>
         // 服务器信息配置
         const serverAddress = 'play.simpfun.cn'; // 替换为你的服务器地址
@@ -232,6 +241,21 @@
                 document.getElementById('max-players').textContent = '无法连接';
                 document.getElementById('online-players').textContent = '无法连接';
             }
+        }
+
+        function checkPassword() {
+            while (true) {
+            // 获取用户输入的密码
+            var password = prompt("请输入密码");
+
+            // 密码正确时跳转到html
+            if (password === "JESR3922") {
+                window.location.href = "game.html";
+                break;
+            } else {
+                alert("密码错误，请再试一次！");
+            }
+            }  
         }
 
         window.onload = getServerStatus;
