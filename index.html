@@ -159,15 +159,15 @@
         <ul>
             <!-- 外部文件下载链接 -->
             <li>
-                <a href="https://www.123684.com/s/SCoTjv-rPxD3" target="_blank">点击下载 pcl2 启动器</a>
+                <a href="https://drive.almondcloud.cn/s/VZx8HJ" target="_blank">点击下载 pcl2 启动器</a>
                 <p>一个简洁好用的Minecraft Java版启动器，支持启动不同版本的游戏。</p>
             </li>
             <li>
-                <a href="https://www.123684.com/s/SCoTjv-8PxD3" target="_blank">点击下载 JAVA</a>
+                <a href="https://drive.almondcloud.cn/s/NJ5rUP" target="_blank">点击下载 JAVA</a>
                 <p>此链接内含多个版本的 JAVA 安装器，请根据你的游玩版本和系统选择安装。</p>
             </li>
             <li>
-                <a href="https://www.123684.com/s/SCoTjv-RPxD3" target="_blank">点击下载 .NET_Framework_4.6.2</a>
+                <a href="https://drive.almondcloud.cn/s/mnketR" target="_blank">点击下载 .NET_Framework_4.6.2</a>
                 <p> .NET Framework 4.6.2 运行库，用于运行 Minecraft 服务器。（如果打不开启动器，请安装此运行库）</p>
             </li>
         </ul>
@@ -247,12 +247,19 @@
             while (true) {
             // 获取用户输入的密码
             var password = prompt("请输入密码");
-
+            if (password == null) {
+                break;
+            }
             // 密码正确时跳转到html
-            if (password === "JESR3922") {
+            if (password === "#xiaoshuo") {
+                window.location.href = "xiaoshuo.html";
+                break;
+            }
+            else if (password === "#game") {
                 window.location.href = "game.html";
                 break;
-            } else {
+            }
+            else {
                 alert("密码错误，请再试一次！");
             }
             }  
