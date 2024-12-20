@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站导航大全</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* 防止出现滚动条 */
+            user-select: none; /* 禁止全局文本选中 */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1000vh; /* 容器高度变大 */
+            width: 1000vw; /* 容器宽度变大 */   
+            position: relative;
+            cursor: grab;
+            overflow: visible;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(8, 100px); /* 默认8列 */
+            grid-template-rows: repeat(8, 100px);    /* 默认8行 */
+            gap: 20px;
+            transform-origin: center center;
+            transition: transform 0.3s ease; /* 放大时平滑过渡 */
+        }
+        .grid1 {
+            display: grid;
+            grid-template-columns: repeat(8, 100px); /* 默认8列 */
+            grid-template-rows: repeat(8, 100px);    /* 默认8行 */
+            gap: 20px;
+            transform-origin: center center;
+            transition: transform 0.3s ease; /* 放大时平滑过渡 */
+        }
+        .grid a {
+            display: block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border-radius: 0; /* 改为方形 */
+            /* background-color: #ffffff; */
+            color: rgb(0, 0, 0);
+            text-align: center;
+            line-height: 80px;
+            font-size: 16px;
+            text-decoration: none;
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+            transition: background-color 0.3s ease;
+        }
+        .grid1 a {
+            display: block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border-radius: 0; /* 改为方形 */
+            /* background-color: #ffffff; */
+            color: rgb(0, 0, 0);
+            text-align: center;
+            line-height: 80px;
+            font-size: 16px;
+            text-decoration: none;
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+            transition: background-color 0.3s ease;
+        }
+
+        .grid a:hover {
+            background-color: #a3a3a3;
+        }
+        .grid1 a:hover {
+            background-color: #a3a3a3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="container">
+    <div class="grid" id="grid">
+        <!-- 添加多个导航链接 -->
+        <a href="https://www.luogu.com.cn" target="_blank">洛谷</a>
+        <a href="https://florr.io" target="_blank">florr</a>
+        <a href="https://www.mcmod.cn" target="_blank">mc百科</a>
+        <a href="https://minebbs.com" target="_blank">minebbs</a>
+        <a href="https://www.bilibili.com/" target="_blank">bilibili</a>
+        <a href="https://www.douyin.com" target="_blank">抖音</a>
+    </div>
+    <div class="grid1" id="grid1">
+        <a></a>
+    </div>
+</div>
+
+<script>
+    // 初始化缩放比例
+    let scale = 1;
+    const maxScale = 3; // 最大缩放倍数
+    const minScale = 0.5; // 最小缩放倍数
+
+    // 鼠标滚轮放大缩小功能
+    document.addEventListener('wheel', (e) => {
+        if (e.deltaY < 0) {
+            scale += 0.1; // 放大
+        } else {
+            scale -= 0.1; // 缩小
+        }
+
+        // 限制缩放的范围
+        scale = Math.min(Math.max(scale, minScale), maxScale);
+
+        // 应用缩放
+        document.getElementById('grid').style.transform = `scale(${scale})`;
+        document.getElementById('grid1').style.transform = `scale(${scale})`;
+    });
+
+    // 鼠标拖动功能，允许上下左右拖动
+    let isDragging = false;
+    let startX, startY, offsetX = 0, offsetY = 0;
+    const container = document.getElementById('container');
+
+    container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        container.style.cursor = 'grabbing';
+    });
+
+    container.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            
+            // 更新偏移量
+            offsetX += dx;
+            offsetY += dy;
+
+            // 更新容器位置
+            container.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+
+            // 更新起始位置
+            startX = e.clientX;
+            startY = e.clientY;
+        }
+    });
+
+    container.addEventListener('mouseup', () => {
+        isDragging = false;
+        container.style.cursor = 'grab';
+    });
+
+    container.addEventListener('mouseleave', () => {
+        isDragging = false;
+        container.style.cursor = 'grab';
+    });
+</script>
+
+</body>
+</html>
