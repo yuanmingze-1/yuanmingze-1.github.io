@@ -11,6 +11,7 @@
         html {
             margin: 0;
             padding: 0;
+            background: url(https://bing.img.run/rand.php);
             height: 100%;
             font-family: 'Arial', sans-serif;
             display: flex;
@@ -41,6 +42,7 @@
             padding: 15px;
             border-radius: 10px;
             margin-top: 20px;
+            padding-top: 20px;
             transition: all 0.3s ease;
         }
 
@@ -63,12 +65,10 @@
 
         /* 按钮样式 */
         .button {
-            background-color: #4CAF50;
-            background: #a3a3a3;
+            background-color: rgba(255, 255, 255, 0.5);
             /* 按钮背景色 */
-            color: #FFFFFF;
+            color: #000000;
             /* 按钮文字颜色 */
-            color: rgb(0, 0, 0);
             border: none;
             font-size: 18px;
             display: flex;
@@ -86,21 +86,18 @@
 
         /* 按钮悬停效果 */
         .button:hover {
-            background: #dfdfdf;
+            background: #e9e9e960;
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
-         /* 按钮悬停效果 */
-        .button:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+        img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+            }
 
-        /* 按钮悬停效果 */
-        .button:focus {
-            outline: none;
-        }
+
     </style>
 </head>
 
@@ -110,7 +107,7 @@
         <div id="time" class="time-display"></div>
 
         <!-- 按钮区域 -->
-        <button class="button" onclick="window.location.href='/minecraft.html'">JESR服务器官网</button>
+        <button class="button" onclick="window.location.href='./minecraft.html'"><b>JESR服务器官网</b></button>
         <button class="button" onclick="window.location.href='https://example2.com'">按钮2</button>
         <button class="button" onclick="window.location.href='https://example3.com'">按钮3</button>
         <button class="button" onclick="window.location.href='https://example4.com'">按钮4</button>
@@ -118,9 +115,9 @@
         <button class="button" onclick="window.location.href='https://example6.com'">按钮6</button>
         <button class="button" onclick="window.location.href='https://example7.com'">按钮7</button>
         <button class="button" onclick="window.location.href='https://example8.com'">按钮8</button>
-        <button class="button" onclick="window.location.href='/github pages game/13th-floor/info.html'">奇怪的第13层</button>
-        <button class="button" onclick="window.location.href='/github pages game/ghosted/info.html'">幽灵化</button>
-        <button class="button" onclick="window.location.href='/github pages game/13-steps-to-escape/info.html'">13步逃离</button>
+        <button class="button" onclick="window.location.href='./github pages game/13th-floor/info.html'"><b>奇怪的第13层</b></button>
+        <button class="button" onclick="window.location.href='./github pages game/ghosted/info.html'"><b>幽灵化</b></button>
+        <button class="button" onclick="window.location.href='./github pages game/13-steps-to-escape/info.html'"><b>13步逃离</b></button>
         <button class="button" onclick="window.location.href='https://example12.com'">按钮12</button>
         <button class="button" onclick="window.location.href='https://example13.com'">按钮13</button>
         <button class="button" onclick="window.location.href='https://example14.com'">按钮14</button>
@@ -139,18 +136,19 @@
         <button class="button" onclick="window.location.href='https://example27.com'">按钮27</button>
         <button class="button" onclick="window.location.href='https://example28.com'">按钮28</button>
         <button class="button" onclick="window.location.href='https://example29.com'">按钮29</button>
-        <button class="button" onclick="window.location.href='https://example30.com'">按钮30</button>
-        <button class="button" onclick="window.location.href='/zanzhu.html'">赞助</button>
+        <button class="button" onclick="window.location.href='./download.html'"><b>下载页面</b></button>
+        <button class="button" onclick="window.location.href='./zanzhu.html'"><b>赞助</b></button>
         <button class="button" onclick="checkPassword()"><b>神奇代码</b></button>
         <a class="text-under">© 2024 袁铭泽的网站. 版权所有.</a>
         <a class="text-under">联系邮箱: ymingze1003@163.com</a>
         <a class="text-under">Powered by 袁铭泽.</a>
+        <a class="text-under">由bing api提供背景图片.</a>
     </div>
     <script>
         function checkPassword() {
             while (true) {
                 // 获取用户输入的密码
-                var password = prompt("请输入神奇代码（代码由站主发放）");
+                var password = prompt("请输入神奇代码（赞助后可获得）");
                 if (password == null) {
                     break;
                 }
