@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片展示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url(https://bing.img.run/rand_uhd.php);
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer; /* 鼠标悬停时显示点击手势 */
+        }
+
+        /* 模态框样式 */
+        .modal {
+            display: none; /* 默认隐藏模态框 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* 半透明背景 */
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>图片展示</h1>
+    <div class="gallery" id="gallery">
+        <!-- 动态加载的图片将显示在这里 -->
+    </div>
+
+    <!-- 模态框，用于显示放大的图片 -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <img id="modalImg" src="" alt="我的新纪录">
+        </div>
+    </div>
+
+    <script>
+        // 使用 fetch() 获取 JSON 文件并动态展示图片
+        fetch('images.json')
+            .then(response => response.json())
+            .then(data => {
+                const gallery = document.getElementById('gallery');
+                data.images.forEach(image => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = 'images/' + image; // 假设所有图片都位于 'images' 文件夹
+                    imgElement.alt = image;
+
+                    // 为每个图片添加点击事件，点击时显示模态框
+                    imgElement.addEventListener('click', () => {
+                        showModal(imgElement.src);
+                    });
+
+                    gallery.appendChild(imgElement);
+                });
+            })
+            .catch(error => {
+                console.error('加载图片列表时出错:', error);
+            });
+
+        // 显示模态框并放大图片
+        function showModal(src) {
+            const modal = document.getElementById('myModal');
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = src; // 设置模态框图片的源为点击的图片
+            modal.style.display = "flex"; // 显示模态框
+        }
+
+        // 点击模态框外部区域时，关闭模态框
+        document.getElementById('myModal').addEventListener('click', () => {
+            document.getElementById('myModal').style.display = "none"; // 隐藏模态框
+        });
+    </script>
+</body>
+</html>
